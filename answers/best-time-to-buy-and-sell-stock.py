@@ -18,5 +18,5 @@ class Solution:
         maxPro = prices[i]-minVal;
     return maxPro;
 
-print(Solution().maxProfit([7,1,5,3,6,4]));
+# print(Solution().maxProfit([7,1,5,3,6,4]));
 
