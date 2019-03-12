@@ -8,5 +8,5 @@ var maxProfit = function(prices) {
         maxPro = Math.max(maxPro,prices[i]-minPri)
       }
     }
-    return maxPro
+    return maxPro;
 };
