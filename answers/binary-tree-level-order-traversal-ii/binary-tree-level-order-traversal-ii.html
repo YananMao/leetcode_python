@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    // v1.0
+    // var levelOrderBottom = function(root) {
+    //     let tra = [];
+    //     if (root) {
+    //       tra.push(root)
+    //     }
+    //     let res = [];
+    //     while(tra.length>0) {
+    //         let part = [];
+    //         let rest = [];
+    //         for (let i=0;i<tra.length;i++) {
+    //             if (!tra[i]) continue;
+    //             part.push(tra[i].val);
+    //             if(tra[i].left){
+    //               rest.push(tra[i].left);
+    //             }
+    //             if(tra[i].right){
+    //               rest.push(tra[i].right)
+    //             }
+    //         }
+    //         res.push(part);
+    //         tra = rest;
+    //     }
+    //     return res.reverse()
+    // };
+    var levelOrderBottom = function(root) {
+        let level = []
+        let roll = (node, deep) => {
+            if(!node){
+                return 
+            }
+            if(!level[deep]){
+                level[deep] = []
+            }
+            level[deep].push(node.val)
+            roll(node.left, deep+1)
+            roll(node.right, deep+1)
+        }
+        roll(root, 0)
+        return level.reverse()
+    };
+    levelOrderBottom({
+      val: 3,
+      left: {
+        val:9,
+        left:null,
+        right: null
+      },
+      right: {
+        val: 12,
+        left: null,
+        right: null
+      }
+    })
+  </script>
+
+</body>
+</html>
