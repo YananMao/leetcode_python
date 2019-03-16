@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		 * @param {string[]} ops
+		 * @return {number}
+		 */
+		var calPoints = function(ops) {
+		    let scores = [];
+		    for(let i=0,len=ops.length;i<len;i++){
+		        if(isNumber(ops[i])){
+		            scores.push(parseInt(ops[i]));
+		        }else {
+		        	const len = scores.length;
+		            switch(ops[i]){
+		                case '+':
+		                    if(len>1){
+		                        scores.push(scores[len-1]+scores[len-2]);
+		                    }
+		                    break;
+		                case 'D':
+		                    if(len>0){
+		                        scores.push(2*scores[len-1]);
+		                    }
+		                    break;
+		                case 'C':
+		                    scores.pop();
+		                    break;
+		            }
+		        }
+		    }
+		    let sum = 0
+		    for(let i=0,len=scores.length;i<len;i++){
+		        sum += scores[i];
+		    }
+		    return sum;
+		};
+		const isNumber = (str)=>{
+		    const intReg = /^\d+$/;
+		    if(intReg.test(str)){
+		        return true;
+		    }
+		    return false;
+		    
+		}
+		calPoints(["5","2","C","D","+"]);
+	</script>
+
+</body>
+</html>
