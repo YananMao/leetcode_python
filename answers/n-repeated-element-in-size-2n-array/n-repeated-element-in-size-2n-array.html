@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var repeatedNTimes = function(A) {
+		    let res = {};
+		    for(let i in A){
+		        if(! res.hasOwnProperty(A[i])){
+		            res[A[i]] = A[i]
+		        }else{
+		            return A[i]
+		        }
+		    }
+		    
+		};
+		repeatedNTimes([4,1,7,0,0,9,0,0])
+	</script>
+</body>
+</html>
