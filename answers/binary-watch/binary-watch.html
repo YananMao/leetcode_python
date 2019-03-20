@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    // var readBinaryWatch = function(num) {
+    //     const output = [];
+        
+    //     // find the number of ones in bit expression of time and match with num
+    //     for (let h = 0; h < 12; h++) {
+    //         for (let m = 0; m < 60; m++) {
+    //             const ones = Number(h * 64 + m).toString(2).split('').filter(d => d === '1').length;
+    //             if (ones === num) output.push(m < 10 ? `${h}:0${m}` : `${h}:${m}`);
+    //         }
+    //     }
+        
+    //     return output;
+    // };
+    var readBinaryWatch = function(num) {
+      let r = [];
+      const getBitCount = n => {
+        let count = 0;
+        while (n > 0) {
+          n = n & (n - 1);
+          count++;
+        }
+        return count;
+      }
+      
+      for (let i = 0; i < 12; i++) {
+        for (let j = 0; j < 60; j++) {
+          if (getBitCount(i << 6 | j) === num) {
+            r.push(`${i}:${j < 10 ? ('0' + j) : j}`);
+          }
+        }
+      }
+      
+      return r;
+    };
+    readBinaryWatch(4);
+  </script>
+
+</body>
+</html>
