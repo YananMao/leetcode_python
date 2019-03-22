@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var reverseList = function(head) {
+		    let front =null;
+		    let cur = head;
+		    let temp = null;
+		    while(cur){
+		        temp = cur.next;
+		        cur.next = front;
+		        front = cur;
+		        cur = temp;
+		        
+		    }
+		    return front;
+		};
+		reverseList({
+			val:1,
+			next:{
+				val:2,
+				next:{
+					val:3,
+					next:null
+				}
+			}
+		})
+
+	</script>
+
+</body>
+</html>
