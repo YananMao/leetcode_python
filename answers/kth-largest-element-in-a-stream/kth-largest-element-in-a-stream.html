@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		 * @param {number} k
+		 * @param {number[]} nums
+		 */
+		var KthLargest = function(k, nums) {
+		    this.k = k;
+		    this.nums = nums.sort((a,b)=>{ return b-a }).slice(0,k);
+		    
+		};
+
+		/** 
+		 * @param {number} val
+		 * @return {number}
+		 */
+		KthLargest.prototype.add = function(val) {
+		    const now = this.nums[this.k-1] ;
+		    if( this.k===this.nums.length+1 || val>now){
+		        this.nums[this.k-1]=val;
+		        this.nums = this.nums.sort((a,b)=>{ return b-a })
+		    }
+		    return this.nums[this.k-1]
+		};
+
+		/** 
+		 * Your KthLargest object will be instantiated and called as such:
+		 * var obj = new KthLargest(k, nums)
+		 * var param_1 = obj.add(val)
+		 */
+			</script>
+
+</body>
+</html>
