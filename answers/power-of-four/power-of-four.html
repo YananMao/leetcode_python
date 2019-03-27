@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+		 * @param {number} num
+		 * @return {boolean}
+		 */
+		var isPowerOfFour = function(num) {
+		    const reg = /^1(00)*$/;
+		    if(reg.test(num.toString(2))){
+		        return true;
+		    }
+		    return false;
+		};
+		isPowerOfFour(16);
+	</script>
+
+</body>
+</html>
